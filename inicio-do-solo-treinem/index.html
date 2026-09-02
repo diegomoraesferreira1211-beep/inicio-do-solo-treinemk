@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Persona System - TCC</title>
+    <!-- Vinculando o CSS Externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <!-- HEADER ESTILO SISTEMA/PERSONA -->
+        <header class="header">
+            <h1 id="header-title">SISTEMA // MISSÕES DIÁRIAS</h1>
+        </header>
+
+        <!-- CONTAINER DAS TELAS DINÂMICAS -->
+        <main class="main-content">
+            
+            <!-- Tela 1: Missões (Aparece por padrão) -->
+            <section id="tela-missao" class="tela-container active">
+                <div id="lista-exercicios" class="cards-wrapper">
+                    <!-- Os cards injetados via JavaScript vão aparecer aqui dinamicamente -->
+                </div>
+            </section>
+
+            <!-- Tela 2: Status (Upar Nível) -->
+            <section id="tela-status" class="tela-container">
+                <div class="status-board">
+                    <h2 class="lvl-display">NÍVEL ATUAL: <span id="user-lvl">--</span></h2>
+                    <div class="exp-bar-container">
+                        <div id="exp-progress" class="exp-bar" style="width: 0%;"></div>
+                    </div>
+                    <p class="exp-text">EXP do Caçador para o próximo Portal</p>
+                </div>
+            </section>
+
+            <!-- Tela 3: Mapa (Google Maps API Placeholder) -->
+            <section id="tela-mapa" class="tela-container">
+                <div class="map-placeholder">
+                    <h3>[ API GOOGLE MAPS ]</h3>
+                    <p>Carregando Portais e Dungeons na região...</p>
+                </div>
+            </section>
+
+            <!-- Tela 4: Inventário -->
+            <section id="tela-itens" class="tela-container">
+                <div class="inventory-grid">
+                    <div class="inv-slot">⚔️ Espada</div>
+                    <div class="inv-slot">🧪 Creatina</div>
+                    <div class="inv-slot">👟 Smartwatch</div>
+                    <div class="inv-slot">🔒 Bloqueado</div>
+                </div>
+            </section>
+
+            <!-- Tela 5: Ajustes -->
+            <section id="tela-ajustes" class="tela-container">
+                <div class="settings-list">
+                    <button class="settings-btn">Configurações de Conta</button>
+                    <button class="settings-btn">Mudar para Libras (lbs)</button>
+                    <button class="settings-btn logout">Sair do Sistema</button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ABAS INFERIORES ASSIMÉTRICAS -->
+        <nav class="bottom-nav">
+            <div class="nav-item active" data-target="tela-missao" data-title="SISTEMA // MISSÕES DIÁRIAS">
+                <span class="nav-icon">⚔️</span>
+                <span>Missão</span>
+            </div>
+            <div class="nav-item" data-target="tela-status" data-title="STATUS // UPANDO NÍVEL">
+                <span class="nav-icon">📈</span>
+                <span>Status</span>
+            </div>
+            <div class="nav-item" data-target="tela-mapa" data-title="MAPA // PORTAIS DISPONÍVEIS">
+                <span class="nav-icon">🗺️</span>
+                <span>Mapa</span>
+            </div>
+            <div class="nav-item" data-target="tela-itens" data-title="INVENTÁRIO // EQUIPAMENTOS">
+                <span class="nav-icon">🎒</span>
+                <span>Itens</span>
+            </div>
+            <div class="nav-item" data-target="tela-ajustes" data-title="PAINEL // CONFIGURAÇÕES">
+                <span class="nav-icon">⚙️</span>
+                <span>Ajustes</span>
+            </div>
+        </nav>
+
+    </div>
+
+    <!-- Vinculando o JavaScript Externo -->
+    <script href="script.js" src="script.js"></script>
+</body>
+</html>
