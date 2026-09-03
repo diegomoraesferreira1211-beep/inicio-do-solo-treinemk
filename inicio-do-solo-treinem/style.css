@@ -1,215 +1,368 @@
-/* CONFIGURAÇÕES GLOBAIS ESTILO PERSONA 5 */
+/* CONFIGURAÇÕES GERAIS */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Impact', 'Arial Black', sans-serif;
+    /* Trocado para Orbitron (estilo Solo Leveling), mantendo Segoe UI como alternativa secundária */
+    font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px; /* Aumentado levemente o espaçamento para combinar com o estilo da fonte */
 }
 
 body {
-    background-color: #020205;
+    background-color: #05060a;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: #ffffff;
+    color: #cbd5e1;
     overflow: hidden;
 }
 
-/* CONTAINER DO APLICATIVO MOBILE */
+/* ESTILIZAÇÃO DO VÍDEO DE FUNDO */
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: brightness(0.35);
+}
+
 .app-container {
     width: 390px;
     height: 844px;
-    background: linear-gradient(135deg, #010103 0%, #051026 100%);
-    border: 3px solid #00E5FF;
-    box-shadow: 0 0 25px rgba(0, 229, 255, 0.25);
-    position: relative;
+    background-color: rgba(11, 13, 23, 0.95);
+    backdrop-filter: blur(8px); 
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    justify-content: space-between;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-/* HEADER DIAGONAL ASSIMÉTRICO */
-.header {
-    background-color: #000000;
-    padding: 25px 20px;
-    transform: skewY(-3deg);
-    margin-top: -10px;
-    border-bottom: 4px solid #00E5FF;
-    z-index: 5;
-}
-
-.header h1 {
-    transform: skewY(3deg);
-    font-size: 22px;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 0px #1A8CFF;
-    color: #ffffff;
-}
-
-/* ÁREA DE CONTEÚDO E CONTROLE DE EXIBIÇÃO DE TELAS */
-.main-content {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
     position: relative;
+    border: 1px solid #1e2538;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
 }
 
-.tela-container {
-    display: none; /* Esconde todas por padrão */
-    width: 100%;
-    height: 100%;
-}
-
-.tela-container.active {
-    display: block; /* Mostra apenas a tela ativa */
-}
-
-/* ESTILIZAÇÃO DOS CARDS DE EXERCÍCIOS */
-.cards-wrapper {
+/* NAV SUPREMA */
+.top-nav-rpg {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 6px;
+    margin-bottom: 5px;
 }
 
-.quest-card {
-    background: #000000;
-    border-left: 6px solid #00E5FF;
-    padding: 15px;
-    transform: skewX(-5deg);
-    box-shadow: -4px 4px 0px #1A8CFF;
-    transition: transform 0.2s ease;
-}
-
-.quest-card-content {
-    transform: skewX(5deg);
-}
-
-.quest-tag {
-    background-color: #00E5FF;
-    color: #000;
-    padding: 2px 6px;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.quest-title {
-    font-size: 18px;
-    margin: 10px 0;
-    text-transform: uppercase;
-}
-
-/* CONTROLADOR DE CARGA DINÂMICA */
-.carga-selector {
+.nav-row-main, .nav-row-sub {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    margin-top: 10px;
+    background-color: #151926;
+    padding: 2px;
+    border: 1px solid #232a40;
 }
 
-.carga-btn {
-    background: #1A8CFF;
-    border: none;
-    color: white;
-    width: 32px;
-    height: 32px;
-    font-size: 20px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.carga-btn:hover {
-    background: #00E5FF;
-    color: #000;
-}
-
-.carga-value {
-    font-size: 18px;
-    color: #00E5FF;
-}
-
-/* TELA DE STATUS */
-.status-board {
-    background: rgba(0,0,0,0.8);
-    padding: 20px;
-    border: 2px solid #1A8CFF;
-    transform: rotate(-1deg);
-    margin-top: 30px;
-}
-
-.exp-bar-container {
-    background: #222;
-    height: 20px;
-    width: 100%;
-    margin-top: 15px;
-    border: 1px solid #00E5FF;
-}
-
-.exp-bar {
-    height: 100%;
-    background: #00E5FF;
-    box-shadow: 0 0 10px #00E5FF;
-    transition: width 0.5s ease;
-}
-
-/* MAPA E OUTRAS TELAS PLACEHOLDERS */
-.map-placeholder, .inventory-grid, .settings-list {
-    margin-top: 20px;
-}
-
-.inv-slot {
-    background: #000;
-    padding: 15px;
-    margin-bottom: 10px;
-    border: 1px dashed #1A8CFF;
-}
-
-.settings-btn {
-    width: 100%;
-    padding: 15px;
-    background: #000;
-    color: #fff;
-    border: 2px solid #1A8CFF;
-    margin-bottom: 10px;
-    text-align: left;
-    transform: skewX(-4deg);
-}
-
-/* BARRA INFERIOR DE NAVEGAÇÃO */
-.bottom-nav {
-    background-color: #000000;
-    height: 85px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-top: 3px solid #1A8CFF;
-    padding-bottom: 12px;
-    z-index: 5;
-}
-
+/* ABAS PADRÃO (TRANSIÇÃO DO BOTÃO ATUALIZADA) */
 .nav-item {
-    color: #4a5768;
-    text-decoration: none;
-    font-size: 11px;
-    text-transform: uppercase;
+    font-size: 9px; /* Reduzido levemente para o texto não quebrar com o ícone maior */
+    font-weight: 700;
+    color: #4b5563;
+    padding: 8px 2px;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 6px; /* Espaço ajustado entre o ícone e o texto */
+    transition: transform 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2), background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.nav-item:hover {
+    color: #9ca3af;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+/* ESTILIZAÇÃO DO BOTÃO DE PERFIL REDONDO CENTRAL */
+.nav-item-profile-circle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
+    position: relative;
+    top: -6px; /* Faz o botão saltar levemente para cima do menu */
+    gap: 4px;
+    transition: transform 0.2s cubic-bezier(0.15, 0.85, 0.35, 1.2), background-color 0.15s ease, color 0.15s ease !important;
+}
+
+.profile-circle-inner {
+    width: 42px;
+    height: 42px;
+    background-color: #151926;
+    border: 1px solid #232a40;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.2s ease;
 }
 
-/* ABA SELECIONADA (ESTILO POP-OUT PERSONA 5) */
-.nav-item.active {
-    color: #00E5FF;
-    font-size: 14px;
-    transform: translateY(-12px) scale(1.08) rotate(-3deg);
-    background: #000000;
-    padding: 8px 12px;
-    border: 2px solid #00E5FF;
-    box-shadow: -4px 4px 0px #1A8CFF;
+.profile-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    opacity: 0.35;
+    transition: opacity 0.2s ease, filter 0.15s ease;
 }
 
+.nav-item-profile-circle span {
+    font-size: 9px;
+    font-weight: 700;
+    color: #4b5563;
+}
+
+.nav-item-profile-circle:hover .profile-icon {
+    opacity: 0.6;
+}
+
+/* TAMANHO DO ÍCONE DAS ABAS PADRÃO */
 .nav-icon {
-    font-size: 22px;
+    width: 26px;  
+    height: 26px; 
+    object-fit: contain;
+    opacity: 0.35;
+    transition: opacity 0.2s ease, filter 0.15s ease;
+}
+
+.nav-item:hover .nav-icon {
+    opacity: 0.6;
+}
+
+.nav-row-sub { background-color: #0e111a; border-color: #1a2030; }
+.sub-tab { font-size: 10px; color: #4b5563; font-weight: 700; flex: 1; text-align: center; padding: 5px; }
+.sub-tab.active { color: #60a5fa; text-decoration: none; }
+
+/* MOLDURAS DA INTERFACE */
+.rpg-frame-container { flex: 1; margin: 10px 0; display: flex; }
+.rpg-border-outer { border: 1px solid #28314d; padding: 3px; background-color: #090b12; width: 100%; position: relative; display: flex; }
+.rpg-border-inner { border: 1px solid #171d2e; padding: 8px; width: 100%; display: flex; flex-direction: column; }
+
+.corner-dot { position: absolute; width: 4px; height: 4px; background-color: #4b5563; border-radius: 50%; }
+.top-left { top: -2px; left: -2px; } .top-right { top: -2px; right: -2px; }
+.bottom-left { bottom: -2px; left: -2px; } .bottom-right { bottom: -2px; right: -2px; }
+
+.main-content { flex: 1; display: flex; }
+.tela-container { display: none; width: 100%; height: 100%; }
+.tela-container.active { display: block; }
+
+/* TRANSIÇÃO SUAVE DE ENTRADA */
+.system-fade-in {
+    animation: simpleFadeIn 0.2s ease-out forwards;
+}
+
+@keyframes simpleFadeIn {
+    0% { opacity: 0; transform: translateY(2px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* LAYOUT DA JANELA DE MISSÕES */
+.quest-simple-view {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 10px;
+}
+
+.category-header {
+    font-size: 11px;
+    color: #4f46e5;
+    font-weight: bold;
+}
+
+.quest-details-panel {
+    background-color: #0f121d;
+    border: 1px solid #1e2538;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.details-header {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e2e8f0;
+    text-align: center;
+}
+
+.details-meta {
+    font-size: 10px;
+    color: #64748b;
+    text-align: center;
+}
+
+.exercise-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #161b29;
+    padding: 12px;
+    border: 1px solid #20273b;
+}
+
+.exercise-svg {
+    width: 20px;
+    height: 20px;
+    fill: #94a3b8;
+}
+
+.exercise-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #f1f5f9;
+}
+
+/* DESIGN DISCRETO PARA A TELA DE PERFIL */
+.profile-unique-screen {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 10px;
+    height: 100%;
+}
+
+.profile-banner {
+    background: linear-gradient(180deg, #151926 0%, #0e111a 100%);
+    border: 1px solid #232a40;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.avatar-holder {
+    width: 70px;
+    height: 70px;
+    background-color: #161b29;
+    border: 1px solid #232a40;
+    border-radius: 50%;
+    background-image: url('icons/abra-o-livro.png'); /* Puxará a foto padrão */
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hunter-name {
+    font-size: 14px;
+    font-weight: 900;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+.hunter-class {
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.profile-stats-card {
+    background-color: #0f121d;
+    border: 1px solid #1e2538;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.stat-row-profile {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    border-bottom: 1px solid #161b29;
+    padding-bottom: 6px;
+}
+
+.stat-row-profile span {
+    color: #4b5563;
+}
+
+.stat-row-profile strong {
+    color: #cbd5e1;
+}
+
+/* BOTÕES DE CARGA */
+.carga-btn {
+    transition: background-color 0.15s, transform 0.1s;
+    cursor: pointer;
+}
+.carga-btn:active {
+    transform: scale(0.95);
+}
+
+/* RODAPÉ */
+.bottom-controls {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.control-tip {
+    font-size: 9px;
+    color: #374151;
+    font-weight: 600;
+}
+
+.exercise-thumb {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+/* ============================================================
+   ANIMAÇÃO DE CLIQUE NAS ABAS ESTILO PERSONA (CORRIGIDO)
+   ============================================================ */
+
+/* 1. EFEITO QUANDO A ABA NORMAL É CLICADA E FICA ATIVA */
+.nav-item.active {
+    background-color: #ffffff !important; /* Bloco branco sólido de alto impacto */
+    color: #05060a !important; /* Texto escuro para contraste extremo */
+    transform: scale(1.12) translateY(-4px) rotate(-1deg); /* Salta para frente, sobe e inclina */
+    box-shadow: -4px 4px 0px #1e2538; /* Sombra sólida e sem desfoque */
+    z-index: 10;
+}
+
+/* Força o ícone a ficar escuro no fundo branco ativo */
+.nav-item.active .nav-icon {
+    opacity: 1 !important;
+    filter: brightness(0); /* Transforma o ícone em silhueta preta */
+}
+
+/* 2. EFEITO QUANDO O PERFIL REDONDO É CLICADO E FICA ATIVA */
+.nav-item-profile-circle.active .profile-circle-inner {
+    background-color: #ffffff !important;
+    border-color: #ffffff !important;
+    transform: scale(1.15) translateY(-4px); /* Expande de forma agressiva */
+    box-shadow: -4px 4px 0px #1e2538;
+}
+
+.nav-item-profile-circle.active .profile-icon {
+    opacity: 1 !important;
+    filter: brightness(0);
+}
+
+.nav-item-profile-circle.active span {
+    color: #ffffff !important;
+}
+
+/* 3. COICE AO CLICAR EM QUALQUER UMA DELAS (EFEITO SENSORIAL DE PRESSÃO) */
+.nav-item:active, .nav-item-profile-circle:active {
+    transform: scale(0.92);
 }

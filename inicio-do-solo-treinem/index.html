@@ -3,96 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solo Persona System - TCC</title>
-    <!-- Vinculando o CSS Externo -->
+    <title>Menu do Sistema - Quadro de Treino</title>
+    
+    <!-- Link corrigido para carregar perfeitamente a fonte Orbitron do Solo Leveling -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
+    <!-- VÍDEO DE FUNDO DO SISTEMA -->
+    <video autoplay muted loop id="bg-video">
+        <source src="animaçao plantention.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
 
     <div class="app-container">
         
-        <!-- HEADER ESTILO SISTEMA/PERSONA -->
-        <header class="header">
-            <h1 id="header-title">SISTEMA // MISSÕES DIÁRIAS</h1>
-        </header>
-
-        <!-- CONTAINER DAS TELAS DINÂMICAS -->
-        <main class="main-content">
-            
-            <!-- Tela 1: Missões (Aparece por padrão) -->
-            <section id="tela-missao" class="tela-container active">
-                <div id="lista-exercicios" class="cards-wrapper">
-                    <!-- Os cards injetados via JavaScript vão aparecer aqui dinamicamente -->
+        <!-- ABAS SUPERIORES COM PERFIL CENTRALIZADO -->
+        <nav class="top-nav-rpg">
+            <div class="nav-row-main">
+                <div class="nav-item active" data-target="tela-missao" data-title="DIÁRIO">
+                    <img src="icons/abra-o-livro.png" alt="" class="nav-icon">
+                    <span>DIÁRIO</span>
                 </div>
-            </section>
+                <div class="nav-item" data-target="tela-mapa" data-title="MAPA">
+                    <img src="icons/bussola.png" alt="" class="nav-icon">
+                    <span>MAPA</span>
+                </div>
 
-            <!-- Tela 2: Status (Upar Nível) -->
-            <section id="tela-status" class="tela-container">
-                <div class="status-board">
-                    <h2 class="lvl-display">NÍVEL ATUAL: <span id="user-lvl">--</span></h2>
-                    <div class="exp-bar-container">
-                        <div id="exp-progress" class="exp-bar" style="width: 0%;"></div>
+                <!-- ABA CENTRAL DE PERFIL (REDONDA E EM DESTAQUE) -->
+                <div class="nav-item-profile-circle" data-target="tela-perfil" data-title="PERFIL">
+                    <div class="profile-circle-inner">
+                        <img src="icons/perfil.png" alt="" class="profile-icon">
                     </div>
-                    <p class="exp-text">EXP do Caçador para o próximo Portal</p>
+                    <span>PERFIL</span>
                 </div>
-            </section>
 
-            <!-- Tela 3: Mapa (Google Maps API Placeholder) -->
-            <section id="tela-mapa" class="tela-container">
-                <div class="map-placeholder">
-                    <h3>[ API GOOGLE MAPS ]</h3>
-                    <p>Carregando Portais e Dungeons na região...</p>
+                <div class="nav-item" data-target="tela-status" data-title="ATRIBUTOS">
+                    <img src="icons/sistema.png" alt="" class="nav-icon">
+                    <span>ATRIBUTOS</span>
                 </div>
-            </section>
-
-            <!-- Tela 4: Inventário -->
-            <section id="tela-itens" class="tela-container">
-                <div class="inventory-grid">
-                    <div class="inv-slot">⚔️ Espada</div>
-                    <div class="inv-slot">🧪 Creatina</div>
-                    <div class="inv-slot">👟 Smartwatch</div>
-                    <div class="inv-slot">🔒 Bloqueado</div>
+                <div class="nav-item" data-target="tela-itens" data-title="INVENTÁRIO">
+                    <img src="icons/bau-de-tesouro.png" alt="" class="nav-icon">
+                    <span>INVENTÁRIO</span>
                 </div>
-            </section>
-
-            <!-- Tela 5: Ajustes -->
-            <section id="tela-ajustes" class="tela-container">
-                <div class="settings-list">
-                    <button class="settings-btn">Configurações de Conta</button>
-                    <button class="settings-btn">Mudar para Libras (lbs)</button>
-                    <button class="settings-btn logout">Sair do Sistema</button>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- ABAS INFERIORES ASSIMÉTRICAS -->
-        <nav class="bottom-nav">
-            <div class="nav-item active" data-target="tela-missao" data-title="SISTEMA // MISSÕES DIÁRIAS">
-                <span class="nav-icon">⚔️</span>
-                <span>Missão</span>
             </div>
-            <div class="nav-item" data-target="tela-status" data-title="STATUS // UPANDO NÍVEL">
-                <span class="nav-icon">📈</span>
-                <span>Status</span>
-            </div>
-            <div class="nav-item" data-target="tela-mapa" data-title="MAPA // PORTAIS DISPONÍVEIS">
-                <span class="nav-icon">🗺️</span>
-                <span>Mapa</span>
-            </div>
-            <div class="nav-item" data-target="tela-itens" data-title="INVENTÁRIO // EQUIPAMENTOS">
-                <span class="nav-icon">🎒</span>
-                <span>Itens</span>
-            </div>
-            <div class="nav-item" data-target="tela-ajustes" data-title="PAINEL // CONFIGURAÇÕES">
-                <span class="nav-icon">⚙️</span>
-                <span>Ajustes</span>
+            
+            <div class="nav-row-sub">
+                <div class="sub-tab active">MISSÕES</div>
             </div>
         </nav>
 
+        <!-- QUADRO CENTRAL COM MOLDURA DE RPG -->
+        <main class="rpg-frame-container">
+            <div class="rpg-border-outer">
+                <div class="rpg-border-inner">
+                    
+                    <div class="corner-dot top-left"></div>
+                    <div class="corner-dot top-right"></div>
+                    <div class="corner-dot bottom-left"></div>
+                    <div class="corner-dot bottom-right"></div>
+
+                    <div class="main-content">
+                        
+                        <!-- TELA DE EXERCÍCIOS / MISSÕES -->
+                        <section id="tela-missao" class="tela-container active">
+                            <div class="quest-simple-view">
+                                <div class="category-header">QUEST 1 ▾</div>
+                                
+                                <div class="quest-details-panel">
+                                    <div class="details-header">
+                                        TREINO DO DIA
+                                    </div>
+                                    
+                                    <div class="details-meta">
+                                        <span>RECOMENDADO NÍVEL 1</span>
+                                    </div>
+
+                                    <!-- Imagem posicionada perfeitamente no lugar do desenho antigo -->
+                                    <div class="exercise-icon-container">
+                                        <img src="icons/homem-levantando.png" alt="" class="exercise-thumb">
+                                        <span class="exercise-label"> TREINO COM PESO PENA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- NOVA TELA DE PERFIL (DESIGN DIFERENCIADO) -->
+                        <section id="tela-perfil" class="tela-container">
+                            <div class="profile-unique-screen">
+                                <div class="profile-banner">
+                                    <div class="avatar-holder"></div>
+                                    <h2 class="hunter-name">CARA QUALQUER</h2>
+                                    <span class="hunter-class">CLASSE: CAÇADOR (E-RANK)</span>
+                                </div>
+                                <div class="profile-stats-card">
+                                    <div class="stat-row-profile"><span>NÍVEL:</span> <strong id="user-lvl">1</strong></div>
+                                    <div class="stat-row-profile"><span>TÍTULO:</span> <strong>NOVO JOGADOR</strong></div>
+                                    <div class="stat-row-profile"><span>CLASSE:</span> <strong>NENHUMA</strong></div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- TELA DE MAPA -->
+                        <section id="tela-mapa" class="tela-container">
+                            <div class="simple-panel-content">
+                                <h2>MAPA GOOGLE MAPS</h2>
+                                <p>Localização dos portais e academias da região.</p>
+                            </div>
+                        </section>
+
+                        <!-- TELA DE STATUS -->
+                        <section id="tela-status" class="tela-container">
+                            <div class="simple-panel-content">
+                                <h2>NÍVEL E ATRIBUTOS</h2>
+                                <p>Configuração dos pontos de força e agilidade.</p>
+                            </div>
+                        </section>
+
+                        <!-- TELA DE ITENS -->
+                        <section id="tela-itens" class="tela-container">
+                            <div class="simple-panel-content">
+                                <h2>INVENTÁRIO</h2>
+                                <p>Seus equipamentos e suplementos de treino.</p>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- RODAPÉ -->
+        <footer class="bottom-controls">
+            <div class="control-tip">SISTEMA ATIVO fodastico</div>
+        </footer>
+
     </div>
 
-    <!-- Vinculando o JavaScript Externo -->
-    <script href="script.js" src="script.js"></script>
+    <!-- SCRIPT DE TROCA DE ABAS ADAPTADO PARA O BOTÃO CENTRAL REDONDO -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const tabs = document.querySelectorAll(".nav-item, .nav-item-profile-circle");
+            const screens = document.querySelectorAll(".tela-container");
+
+            tabs.forEach(tab => {
+                tab.addEventListener("click", () => {
+                    // Remove classe ativa de todas as abas e telas
+                    tabs.forEach(t => t.classList.remove("active"));
+                    screens.forEach(s => s.classList.remove("active"));
+
+                    // Ativa a aba atual
+                    tab.classList.add("active");
+                    
+                    // Ativa a tela correspondente
+                    const target = tab.getAttribute("data-target");
+                    const targetScreen = document.getElementById(target);
+                    if (targetScreen) {
+                        targetScreen.classList.add("active");
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
