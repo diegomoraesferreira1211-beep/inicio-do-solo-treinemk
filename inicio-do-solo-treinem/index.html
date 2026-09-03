@@ -6,7 +6,9 @@
     <title>Menu do Sistema - Quadro de Treino</title>
     
     <!-- Link corrigido para carregar perfeitamente a fonte Orbitron do Solo Leveling -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -68,34 +70,25 @@
 
                     <div class="main-content">
                         
-                        <!-- TELA DE EXERCÍCIOS / MISSÕES -->
+                        <!-- TELA DE EXERCÍCIOS / MISSÕES (O JavaScript vai renderizar a lista aqui dentro) -->
                         <section id="tela-missao" class="tela-container active">
                             <div class="quest-simple-view">
                                 <div class="category-header">QUEST 1 ▾</div>
                                 
-                                <div class="quest-details-panel">
-                                    <div class="details-header">
-                                        TREINO DO DIA
-                                    </div>
-                                    
-                                    <div class="details-meta">
-                                        <span>RECOMENDADO NÍVEL 1</span>
-                                    </div>
-
-                                    <!-- Imagem posicionada perfeitamente no lugar do desenho antigo -->
-                                    <div class="exercise-icon-container">
-                                        <img src="icons/homem-levantando.png" alt="" class="exercise-thumb">
-                                        <span class="exercise-label"> TREINO COM PESO PENA</span>
-                                    </div>
+                                <div id="lista-exercicios">
+                                    <!-- Os cards dinâmicos do banco de dados Python vão surgir aqui -->
                                 </div>
                             </div>
                         </section>
 
-                        <!-- NOVA TELA DE PERFIL (DESIGN DIFERENCIADO) -->
+                        <!-- NOVA TELA DE PERFIL -->
                         <section id="tela-perfil" class="tela-container">
                             <div class="profile-unique-screen">
                                 <div class="profile-banner">
-                                    <div class="avatar-holder"></div>
+                                    <!-- A tag abaixo recebe a imagem de perfil dinâmica tratada no CSS -->
+                                    <div class="avatar-holder">
+                                        <img src="icons/perfil.png" alt="Avatar do Caçador" class="hunter-avatar-img">
+                                    </div>
                                     <h2 class="hunter-name">CARA QUALQUER</h2>
                                     <span class="hunter-class">CLASSE: CAÇADOR (E-RANK)</span>
                                 </div>
@@ -143,30 +136,7 @@
 
     </div>
 
-    <!-- SCRIPT DE TROCA DE ABAS ADAPTADO PARA O BOTÃO CENTRAL REDONDO -->
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const tabs = document.querySelectorAll(".nav-item, .nav-item-profile-circle");
-            const screens = document.querySelectorAll(".tela-container");
-
-            tabs.forEach(tab => {
-                tab.addEventListener("click", () => {
-                    // Remove classe ativa de todas as abas e telas
-                    tabs.forEach(t => t.classList.remove("active"));
-                    screens.forEach(s => s.classList.remove("active"));
-
-                    // Ativa a aba atual
-                    tab.classList.add("active");
-                    
-                    // Ativa a tela correspondente
-                    const target = tab.getAttribute("data-target");
-                    const targetScreen = document.getElementById(target);
-                    if (targetScreen) {
-                        targetScreen.classList.add("active");
-                    }
-                });
-            });
-        });
-    </script>
+    <!-- VINCULAÇÃO DO ARQUIVO JAVASCRIPT EXTERNO -->
+    <script src="script.js"></script>
 </body>
 </html>

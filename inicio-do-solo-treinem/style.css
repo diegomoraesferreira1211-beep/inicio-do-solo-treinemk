@@ -249,16 +249,24 @@ body {
     gap: 10px;
 }
 
+/* Container do avatar limpo, redondo e sem neon */
 .avatar-holder {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
     background-color: #161b29;
     border: 1px solid #232a40;
     border-radius: 50%;
-    background-image: url('icons/abra-o-livro.png'); /* Puxará a foto padrão */
-    background-size: 40%;
-    background-position: center;
-    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Ajusta a imagem do avatar para cobrir o círculo perfeitamente */
+.hunter-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .hunter-name {
@@ -327,7 +335,7 @@ body {
 }
 
 /* ============================================================
-   ANIMAÇÃO DE CLIQUE NAS ABAS ESTILO PERSONA (CORRIGIDO)
+   ANIMAÇÃO DE CLIQUE NAS ABAS ESTILO PERSONA (REATIVADO)
    ============================================================ */
 
 /* 1. EFEITO QUANDO A ABA NORMAL É CLICADA E FICA ATIVA */
@@ -339,30 +347,51 @@ body {
     z-index: 10;
 }
 
-/* Força o ícone a ficar escuro no fundo branco ativo */
+/* Força o ícone normal a ficar preto no fundo branco ativo */
 .nav-item.active .nav-icon {
     opacity: 1 !important;
-    filter: brightness(0); /* Transforma o ícone em silhueta preta */
+    filter: brightness(0) !important; /* Transforma o ícone em silhueta totalmente preta */
 }
 
-/* 2. EFEITO QUANDO O PERFIL REDONDO É CLICADO E FICA ATIVA */
+/* 2. EFEITO QUANDO A ABA CENTRAL DE PERFIL FICA ATIVA */
 .nav-item-profile-circle.active .profile-circle-inner {
     background-color: #ffffff !important;
     border-color: #ffffff !important;
-    transform: scale(1.15) translateY(-4px); /* Expande de forma agressiva */
     box-shadow: -4px 4px 0px #1e2538;
+    transform: scale(1.1) translateY(-2px);
 }
 
 .nav-item-profile-circle.active .profile-icon {
     opacity: 1 !important;
-    filter: brightness(0);
+    filter: brightness(0) !important; /* Deixa o ícone do perfil preto igual aos outros */
 }
 
 .nav-item-profile-circle.active span {
-    color: #ffffff !important;
+    color: #ffffff !important; /* Garante que o texto "PERFIL" continue legível */
 }
 
-/* 3. COICE AO CLICAR EM QUALQUER UMA DELAS (EFEITO SENSORIAL DE PRESSÃO) */
-.nav-item:active, .nav-item-profile-circle:active {
-    transform: scale(0.92);
+/* Botões + e - totalmente transparentes e modificáveis */
+.carga-btn {
+    background: none !important;      /* Remove totalmente qualquer fundo */
+    border: none !important;          /* Remove qualquer borda padrão */
+    color: #7a80d4;                   /* Cor do texto (+ ou -) combinando com o sistema */
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;                  /* Tamanho do sinal de + e - */
+    font-weight: 900;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.1s ease, color 0.15s ease;
+}
+
+/* Efeito sutil ao passar o mouse por cima */
+.carga-btn:hover {
+    color: #38e40d;                   /* Fica levemente mais claro ao passar o mouse */
+}
+
+/* Efeito de clique físico do botão */
+.carga-btn:active {
+    transform: scale(0.85);           /* Dá a sensação de clique diminuindo levemente */
 }
