@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Treine - Menu</title>
+    <!-- Fontes estilo Solo Leveling -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+    <!-- Vinculo com o CSS na mesma pasta -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- 👇 ESSA É A TAG QUE FALTA NO SEU HTML PARA O VÍDEO APARECER 👇 -->
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="../imagens-e-sons/fundo-roxo.mp4" type="video/mp4">
+    </video>
+
+    <div class="menu-container">
+        <div class="logo-container">
+            <img src="../imagens-e-sons/solo-treine.png" alt="Solo Treine Logo" class="logo">
+        </div>
+
+        <div class="menu-options">
+            <button class="menu-btn" onclick="animarEBotao(this, 'login')">LOGIN</button>
+            <button class="menu-btn" onclick="animarEBotao(this, 'cadastro')">CADASTRO</button>
+        </div>
+    </div>
+
+    <!-- Vinculo com o JS na mesma pasta -->
+    <script src="./script.js"></script>
+</body>
+</html>

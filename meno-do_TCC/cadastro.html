@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Treine - Cadastro</title>
+    <!-- Fontes no estilo Solo Leveling -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+    <!-- Vinculo com o mesmo CSS para reaproveitar o fundo -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- Mantém o mesmo vídeo de fundo rodando -->
+    <video autoplay loop muted playsinline id="bg-video">
+        <source src="../imagens-e-sons/fundo-roxo.mp4" type="video/mp4">
+    </video>
+
+    <!-- Janela de Cadastro estilo Interface de Jogo -->
+    <div class="form-container">
+        <h2 class="form-title">CRIAR NOVA CONTA</h2>
+        
+        <form action="#" method="POST" class="game-form">
+            <div class="input-group">
+                <label for="username">CAÇADOR (NOME):</label>
+                <input type="text" id="username" required placeholder="Digite seu nome...">
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-MAIL:</label>
+                <input type="email" id="email" required placeholder="Digite seu e-mail...">
+            </div>
+
+            <div class="input-group">
+                <label for="password">SENHA:</label>
+                <input type="password" id="password" required placeholder="Digite sua senha...">
+            </div>
+
+            <button type="submit" class="menu-btn form-submit-btn">REGISTRAR</button>
+        </form>
+
+        <a href="./index.html" class="back-link">← VOLTAR AO MENU</a>
+    </div>
+
+</body>
+</html>

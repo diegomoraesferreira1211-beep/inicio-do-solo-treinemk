@@ -1,0 +1,189 @@
+/* Configurações de fundo inspiradas na interface de Solo Leveling (Tema Azul Místico) */
+body {
+    margin: 0;
+    padding: 0;
+    background: #0a0f1d; /* Azul escuro místico de segurança caso o vídeo falhe */
+    font-family: 'Cinzel', 'Segoe UI', serif; /* Fonte com estilo de menu de jogo de fantasia */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Força o vídeo a cobrir 100% da tela sem distorcer e ficar no fundo */
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1; /* Joga o vídeo para trás de todos os elementos */
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+
+    /* 👇 AQUI VOCÊ AJUSTA O BRILHO DO VÍDEO 👇 */
+    /* 1.0 é o normal (100%). Use valores menores como 0.5 (50%) ou 0.7 para escurecer */
+    /* Use valores maiores como 1.3 ou 1.5 se quiser clarear o vídeo */
+    filter: brightness(0.6); 
+}
+
+.menu-container {
+    text-align: center;
+    z-index: 1; /* Garante que os botões fiquem clicáveis por cima do vídeo */
+}
+
+.logo-container {
+    margin-bottom: 50px;
+}
+
+.logo {
+    max-width: 380px; /* Já deixei a logo aumentada conforme você pediu antes */
+    height: auto;
+    filter: drop-shadow(0 0 20px #00d2ff); /* Brilho neon azul combinando com a logo e o vídeo */
+}
+
+.menu-options {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Estilização dos botões no estilo Janela de Sistema */
+.menu-btn {
+    background: rgba(10, 15, 29, 0.65); /* Fundo escuro semi-transparente para dar leitura sobre o vídeo */
+    border: 2px solid #00d2ff; /* Borda azul neon */
+    color: #ffffff;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 3px; /* Espaçamento de letras imponente */
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    width: 220px;
+    position: relative;
+    outline: none;
+    font-family: 'Cinzel Decorative', 'Cinzel', serif; /* Fonte estilizada nos botões */
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+}
+
+/* Efeito de foco/seleção estilo game */
+.menu-btn:hover {
+    background: rgba(0, 210, 255, 0.25);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.75);
+    border-color: #00e5ff;
+}
+
+/* Classe da animação estilo Subida de Nível / Desaparecimento */
+.zelda-fade-out {
+    animation: soloLevelingExpandFade 0.6s ease-out forwards;
+    pointer-events: none; /* Bloqueia cliques extras durante a animação */
+}
+
+/* Animação adaptada para expandir liberando energia azul */
+@keyframes soloLevelingExpandFade {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 30px #fff;
+    }
+    50% {
+        background: rgba(0, 210, 255, 0.6);
+    }
+    100% {
+        transform: scale(2.3);
+        opacity: 0;
+        box-shadow: 0 0 60px rgba(0, 210, 255, 0);
+    }
+}
+
+
+
+/* ==========================================================================
+   ESTILOS DA TELA DE CADASTRO (ESTILO JANELA DE STATUS)
+   ========================================================================== */
+
+/* Caixa principal do formulário */
+.form-container {
+    background: rgba(10, 15, 29, 0.85); /* Fundo escuro transparente estilo HUD de jogo */
+    border: 2px solid #00d2ff; /* Borda azul neon */
+    box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
+    padding: 40px;
+    width: 350px;
+    text-align: center;
+    z-index: 1;
+    font-family: 'Cinzel', serif;
+}
+
+/* Título estilizado */
+.form-title {
+    color: #00d2ff;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+.game-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Grupos de inputs (Label + Input) */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.input-group label {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Campos de texto estilo tecnológico */
+.input-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    padding: 12px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: sans-serif; /* Fonte simples para leitura do texto digitado */
+}
+
+.input-group input:focus {
+    border-color: #00d2ff;
+    box-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+}
+
+/* Botão de envio adaptado */
+.form-submit-btn {
+    width: 100% !important;
+    margin-top: 10px;
+}
+
+/* Link para voltar ao menu */
+.back-link {
+    display: inline-block;
+    margin-top: 25px;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #00d2ff;
+}
