@@ -7,8 +7,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100svh;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Força o vídeo a cobrir 100% da tela sem distorcer e ficar no fundo */
@@ -40,8 +43,11 @@ body {
 }
 
 .logo {
-    max-width: 380px; /* Já deixei a logo aumentada conforme você pediu antes */
+    display: block;
+    width: min(380px, 82vw);
+    max-height: 48vh;
     height: auto;
+    object-fit: contain;
     filter: drop-shadow(0 0 20px #00d2ff); /* Brilho neon azul combinando com a logo e o vídeo */
 }
 
@@ -54,6 +60,10 @@ body {
 
 /* Estilização dos botões no estilo Janela de Sistema */
 .menu-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
     background: rgba(10, 15, 29, 0.65); /* Fundo escuro semi-transparente para dar leitura sobre o vídeo */
     border: 2px solid #00d2ff; /* Borda azul neon */
     color: #ffffff;
@@ -66,8 +76,9 @@ body {
     width: 220px;
     position: relative;
     outline: none;
-    font-family: 'Cinzel Decorative', 'Cinzel', serif; /* Fonte estilizada nos botões */
+    font-family: 'Times New Roman', serif;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.8);
+    text-decoration: none;
 }
 
 /* Efeito de foco/seleção estilo game */
@@ -112,17 +123,18 @@ body {
     background: rgba(10, 15, 29, 0.85); /* Fundo escuro transparente estilo HUD de jogo */
     border: 2px solid #00d2ff; /* Borda azul neon */
     box-shadow: 0 0 30px rgba(0, 210, 255, 0.3);
-    padding: 40px;
-    width: 350px;
+    box-sizing: border-box;
+    padding: clamp(22px, 6vw, 40px);
+    width: min(430px, calc(100vw - 32px));
     text-align: center;
     z-index: 1;
-    font-family: 'Cinzel', serif;
+    font-family: 'Times New Roman', serif;
 }
 
 /* Título estilizado */
 .form-title {
     color: #00d2ff;
-    font-family: 'Cinzel Decorative', serif;
+    font-family: 'Times New Roman', serif;
     font-size: 1.6rem;
     margin-bottom: 30px;
     letter-spacing: 2px;
@@ -152,6 +164,8 @@ body {
 
 /* Campos de texto estilo tecnológico */
 .input-group input {
+    box-sizing: border-box;
+    width: 100%;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(0, 210, 255, 0.4);
     padding: 12px;
@@ -187,3 +201,128 @@ body {
 .back-link:hover {
     color: #00d2ff;
 }
+
+
+#app-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 24px 16px;
+}
+
+
+
+/* Ajustes para telas pequenas, toque e empacotamento em aplicativo. */
+#bg-video {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+#app-content {
+    position: relative;
+    z-index: 1;
+}
+
+.menu-btn:focus-visible,
+.back-link:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 4px;
+}
+
+.back-link {
+    min-height: 44px;
+    align-items: center;
+    padding: 6px 10px;
+}
+
+@media (max-width: 480px) {
+    .logo-container {
+        margin-bottom: clamp(24px, 6vh, 40px);
+    }
+
+    .logo {
+        width: min(340px, 82vw);
+        max-height: 42vh;
+    }
+
+    .menu-options {
+        gap: 14px;
+        width: 100%;
+    }
+
+    .menu-btn {
+        width: min(280px, calc(100vw - 48px));
+        min-height: 52px;
+        padding: 14px 20px;
+        font-size: 1.05rem;
+        letter-spacing: 2px;
+    }
+
+    .form-container {
+        padding: 22px 18px;
+    }
+
+    .form-title {
+        font-size: clamp(1.25rem, 6vw, 1.6rem);
+        margin-bottom: 24px;
+    }
+
+    .game-form {
+        gap: 16px;
+    }
+}
+
+@media (max-height: 650px) and (orientation: landscape) {
+    #app-content {
+        align-items: flex-start;
+    }
+
+    .logo-container {
+        margin-bottom: 12px;
+    }
+
+    .logo {
+        max-height: 32vh;
+    }
+
+    .form-container {
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .zelda-fade-out {
+        animation: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+    }
+
+    .menu-btn {
+        transition-duration: 0.01ms;
+    }
+}
+
+
+#bg-video {
+    top: 0;
+    left: 0;
+    transform: none;
+}
+
+.back-link {
+    display: inline-flex;
+    justify-content: center;
+}
+
+
+
